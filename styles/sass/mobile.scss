@@ -1,0 +1,556 @@
+@import "config";
+
+//>1000px height
+@include maxHeight {
+  body#bg-img:after {
+    min-height: 100vh;
+  }
+  // main#home {
+  //   h2.bio {
+  //     top: 400px;
+  //   }
+  //   div.icons {
+  //     top: 836px;
+  //   }
+  // }
+    main#whyme {
+        h2.bio {
+            top: 200px;
+        }
+        div.reasonsGrid {
+            top: 300px;
+        }
+    }
+    main#toolkit {
+        h2.bio {
+            top: 200px;
+        }
+        div.toolGrid {
+            top: 400px;
+        }
+    }
+    main#mywork {
+        min-height: 1050px;
+        h2.bio {
+            top: 175px;
+        }
+        #carousel {
+            top: 300px;
+        }
+    }
+    main#contact {
+        h2.bio {
+            top: 200px;
+        }
+        div.boxes {
+            top: 400px;
+        }
+    }
+}
+
+//responsive typography for width <1400px
+@include maxScreen {
+    html {
+        div#name>h1.name {
+            font-size: 140px;
+            left: 65px;
+            &.nb {
+                left: 440px;
+            }
+        }
+        h2.bio {
+            font-size: 42px;
+        }
+    }
+    body {
+        header {
+            nav.menu {
+                .selfie {
+                    width: 500px;
+                    height: 500px;
+                }
+                ul.menu-nav {
+                    li.nav-item {
+                        a {
+                            font-size: 80px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    main#whyme {
+        div#name>h1.name.nb {
+            left: 370px;
+        }
+        div.reasonsGrid .reason {
+            h2.reasonTitle {
+                font-size: 42px;
+            }
+            p.reasonSum {
+                font-size: 28px;
+            }
+        }
+    }
+    main#toolkit {
+        div#name>h1.name {
+            font-size: 140px;
+            &.nb {
+                left: 317px;
+            }
+        }
+    }
+    main#mywork {
+        div#name>h1.name {
+            left: 56px;
+            top: 50px;
+            &.nb {
+                left: 266px;
+                top: 50px;
+            }
+        }
+        h2.bio {
+            left: 616px;
+            top: 100px;
+        }
+    }
+    main#contact {
+        div#name>h1.name {
+            &.nb {
+                left: 560px;
+            }
+        }
+        div.boxes div {
+            font-size: 30px;
+        }
+    }
+}
+
+//tablet >1000px
+@include mediaMd {
+    main#home {
+        min-height: initial;
+    }
+    body#bg-img:after {
+        min-height: initial;
+    }
+    main#home {
+        min-height: 800px;
+    }
+    div#name>h1.name {
+        font-size: 16vw;
+        left: 4vw;
+        &.nb {
+            font-size: 16vw;
+            left: 45vw;
+        }
+    }
+    h2.bio {
+        font-size: 6vw;
+    }
+    header>nav.menu {
+        div.selfie {
+            transform: translateX(666px);
+            @include easeOut;
+            transition-delay: .333s;
+            &.show {
+                transform: translateX(0);
+            }
+        }
+        ul.menu-nav>li.nav-item {
+            transform: translate3d(-1111px, 0, 0);
+            &.show {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+    main {
+        align-items: center;
+        text-align: center;
+        .lg-heading {
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        &#whyme {
+            min-height: 1000px;
+            height: 110vh;
+            padding: 3vw;
+            div#name {
+                h1 {
+                    &.name.nb {
+                        left: 37vw;
+                    }
+                }
+            }
+            h2.bio {
+                top: 200px;
+            }
+            div.reasonsGrid {
+                top: 380px;
+                position: absolute;
+                // top: 35vh;
+                margin-right: 0;
+                width: 92vw;
+                grid-template-areas: "icon-one reason-one" "icon-two reason-two" "icon-three reason-three";
+                grid-template-columns: repeat(2, 1fr);
+                row-gap: 3vw;
+                column-gap: 0;
+                .reason {
+                    h2.reasonTitle {
+                        font-size: 5vw;
+                    }
+                    p.reasonSum {
+                        font-size: 3.33vw;
+                    }
+                    width: 100%;
+                    height:100%;
+                }
+                div.icon-one,
+                div.icon-two,
+                div.icon-three {
+                    height: 100%;
+                }
+                div.reason h2 {
+                    margin-top: 2vh;
+                }
+                div.reason-three>h2.reasonTitle {
+                    margin-top: 5vh;
+                }
+            }
+        }
+    }
+    ul.menu-nav,
+    div.menu-brand {
+        float: none;
+        width: 100%;
+        min-height: 0;
+        &.show {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    .menu-nav {
+        height: 75vh;
+        transform: translate3d(-100%, 0, 0);
+    }
+    .menu-brand {
+        height: 25vh;
+        transform: translate3d(100%, 0, 0);
+        .selfie {
+            width: 24vh;
+            height: 24vh;
+        }
+    }
+    main#toolkit {
+        div#name>h1 {
+            top: 40px;
+            &.name.nb {
+                left: 32vw;
+            }
+        }
+        h2.bio {
+            top: 200px;
+            font-size: 5vw;
+        }
+        padding: 2rem;
+        div.toolGrid {
+            position: relative;
+            top: 200px;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: "tool-one tool-two tool-three" "tool-four tool-five tool-six" "tool-seven tool-eight tool-nine" "tool-ten tool-eleven tool-twelve";
+            row-gap: 15px;
+            column-gap: 15px;
+            div.tool>img {
+                height: 100px;
+                width: auto;
+                &.tool-two {
+                    margin-top: -5px;
+                    width: 115px;
+                    height: 115px;
+                    // max-width: 170px;
+                }
+                &.tool-three {
+                    margin-top: 20px;
+                    height: 80px;
+                }
+                &.tool-nine {
+                    margin-top: 0px;
+                }
+            }
+        }
+    }
+    main#mywork {
+        min-height: 1050px;
+        div#name>h1.name {
+            top: 0;
+            &.nb {
+                top: 0;
+                left: 28vw;
+            }
+        }
+        h2.bio {
+            top: 130px;
+        }
+        #carousel {
+            top: 300px;
+        }
+    }
+    main#contact {
+        div#name>h1.name {
+            &.nb {
+                left: 60vw;
+            }
+        }
+        h2.bio {
+            left: 0;
+        }
+        div.boxes div {
+            font-size: 3.33vw;
+        }
+    }
+}
+
+//smartphone width >500px
+@include mediaSm {
+    main#home {
+        min-height: initial;
+    }
+    body#bg-img:after {
+        min-height: initial;
+    }
+    div#name {
+        height: 12vw;
+        position: static;
+        margin-top: 15vh;
+        display: flex;
+        justify-content: center;
+        h1.name {
+            position: static;
+            height: 12vw;
+            font-size: 12vw;
+            padding: 0;
+            margin: 0;
+            &.na {
+                padding-right: 5px;
+            }
+            &.nb {
+                padding: 0;
+                padding-left: 5px;
+                margin: 0;
+                height: 12vw;
+                position: static;
+                font-size: 12vw;
+            }
+        }
+    }
+    h2.bio {
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 6vw;
+    }
+    body {
+        header {
+            nav.menu {
+                ul.menu-nav {
+                    li.nav-item {
+                        a {
+                            font-size: 10vw;
+                            &.nav-link {
+                                padding-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    header>nav.menu>ul.menu-nav>li.nav-item>a.nav-link {
+        padding-bottom: 22px;
+    }
+    ul.menu-nav {
+        .menu-brand .selfie {
+            width: 23vh;
+            height: 23vh;
+        }
+    }
+    main#home {
+        padding: 0;
+    }
+    main#whyme {
+        min-height: 1150px;
+        div#name {
+            margin-top: 5vh;
+        }
+        height: 170vh;
+        padding: 6vw;
+        h2.bio {
+            top: 15vh;
+        }
+        div.reasonsGrid {
+            top: 25vh;
+            width: 88vw;
+            height: 50%;
+            margin-bottom: 600px;
+            grid-template-areas: "icon-one" "reason-one" "icon-two" "reason-two" "icon-three" "reason-three";
+            grid-template-columns: repeat(1, 1fr);
+            row-gap: 3vh;
+            column-gap: 0;
+            .icon-one {
+                width: 70%;
+                margin-left: 10%;
+            }
+            .icon-three i {
+                animation: rsrkt 3s linear 1s infinite;
+            }
+            div.reason {
+                h2.reasonTitle {
+                    margin-top: 3vh;
+                    font-size: 6vw;
+                }
+                p.reasonSum {
+                    font-size: 5vw;
+                }
+            }
+            div.reason-three>h2.reasonTitle {
+                margin-top: 2vh;
+            }
+        }
+    }
+    main#toolkit {
+        min-height: 800px;
+        padding: 6vw;
+        div#name {
+            margin-top: 3vh;
+            h1 {
+                margin-bottom: 13px;
+            }
+        }
+        h2.bio {
+            top: 13vh;
+        }
+        div.toolGrid {
+            width: 88vw;
+            position: absolute;
+            top: 22vh;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: "tool-one tool-two" "tool-three tool-four" "tool-five tool-six" "tool-seven tool-eight" "tool-nine tool-ten" "tool-eleven tool-twelve";
+            row-gap: 15px;
+            column-gap: 15px;
+            div.tool>img {
+                height: 80px;
+                width: auto;
+                &.tool-two {
+                    margin-top: -5px;
+                    width: 95px;
+                    height: 95px;
+                    // max-width: 170px;
+                }
+                &.tool-three {
+                    margin-top: 20px;
+                    height: 70px;
+                }
+                &.tool-nine {
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+    main#mywork {
+        padding: 0;
+        min-height: 600px;
+        #name {
+            margin-top: 3vh;
+            h1.name {
+                margin-top: 0;
+            }
+        }
+        h2.bio {
+            top: 6vh;
+        }
+        div#carousel {
+            padding: 0;
+            width: 100%;
+            margin-top: 20px;
+            height: 65vh;
+            top: 14vh;
+            button.carouselSlider {
+                top: 70vh;
+                i {
+                    position: relative;
+                }
+                &.slide-left {
+                    left: 5vw;
+                }
+                &.slide-right {
+                    right: 5vw;
+                }
+            }
+            div.carouselNav {
+                position: absolute;
+                top: 68vh;
+                left: 0;
+                right: 0;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+    main#contact {
+        height: 135%;
+        padding: 0;
+        #name {
+            margin-top: 8vh;
+        }
+        div.boxes {
+            top: 20vh;
+            div {
+                margin-bottom: 1rem;
+                width: 100%;
+                font-size: 5vw;
+            }
+        }
+        form {
+            top: 5vh;
+            left: 0;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+    }
+    @keyframes rsrkt {
+        0% {
+            opacity: 0;
+            right: -22px;
+            transform: rotate(90deg);
+        }
+        5% {
+            opacity: .2;
+            right: -22px;
+            top: 55px;
+        }
+        30% {
+            opacity: 1;
+            top: -10px;
+            right: 0;
+            transform: rotate(0deg);
+        }
+        50% {
+            opacity: 1;
+            top: -20px;
+        }
+        70% {
+            opacity: 1;
+            top: -10px;
+        }
+        90% {
+            opacity: .5;
+            top: -20px;
+        }
+        100% {
+            opacity: 0;
+            right: 0;
+            transform: rotate(0deg);
+            top: -10px;
+        }
+    }
+}

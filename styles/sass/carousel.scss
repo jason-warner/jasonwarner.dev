@@ -1,0 +1,65 @@
+.carousel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70vw;
+  height: 70vh;
+  max-height: 666px;
+  max-width: 984px;
+  top: 25vh;
+  button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    &.carouselSlider {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &.slide-left {
+      left: -40px;
+    }
+    &.isHidden {
+      display: none;
+    }
+  }
+  i {
+    color: red;
+    cursor: pointer;
+    padding: 5px;
+    &.slideCurrent {
+      color: #000;
+    }
+  }
+  .slide-container {
+    background: transparent;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    .slide-track {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      position: relative;
+      height: 100%;
+      transition: transform 250ms ease-in;
+      .slide {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    }
+  }
+  .slide-right {
+    right: -40px;
+  }
+  .carouselNav {
+    width: 100px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
