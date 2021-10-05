@@ -58,6 +58,16 @@
                 left: 440px;
             }
         }
+        div#name {
+            display: flex;
+            flex-direction: row;
+            // justify-content: space-between;
+            position: relative;
+            .name {
+                position: static;
+                display: flex;
+            }
+        }
         h2.bio {
             font-size: 42px;
         }
